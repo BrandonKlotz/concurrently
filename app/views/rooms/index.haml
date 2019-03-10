@@ -1,0 +1,17 @@
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Passcode
+        %th Status
+        %th Join
+        %th Leave
+    %tbody
+      - @rooms.each do |room|
+        = content_tag :tr, id: dom_id(room), class: dom_class(room) do
+          %td= link_to room.name, room
+          %td= room.passcode
+          %td= room.status
+          %td= link_to "Join", room_room_users_path(room), method: :post
+          %td= link_to "Leave", room_room_users_path(room), method: :delete

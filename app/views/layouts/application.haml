@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
+    = render 'shared/head'
+  %body
+    = render 'shared/navbar'
+    = render 'shared/notices'
+    - if user_signed_in?
+      .fluid-container
+        .row
+          .col-sm-2
+            = link_to new_room_path, class: 'btn btn-default' do
+              New Room
+            = link_to rooms_path, class: 'btn btn-default' do
+              %span.glyphicon.glyphicon-list-alt
+              All Rooms
+            - if user_signed_in?
+              %ul
+                - current_user.rooms.each do |room|
+                  %li= link_to room.name, room_path(room)
+                  = link_to "Edit", edit_room_path(room), class: 'btn btn-primary'
+          .col-sm-10
+            = yield
+    - else
+      .container
+        = yield
+    = render 'shared/footer'
