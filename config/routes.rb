@@ -1,7 +1,10 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  resources :rooms
+  resources :rooms do 
+    resource :room_users
+  end
+
   namespace :admin do
       resources :users
       resources :announcements
