@@ -7,21 +7,17 @@
     = render 'shared/navbar'
     = render 'shared/notices'
     - if user_signed_in?
-      .fluid-container
-        .row
-          .col-sm-2
-            = link_to new_room_path, class: 'btn btn-default' do
-              New Room
-            = link_to rooms_path, class: 'btn btn-default' do
-              %span.glyphicon.glyphicon-list-alt
-              All Rooms
+      .ui.grid
+        .four.wide.column
+          .ui.vertical.attached.menu
+            .item= link_to "New Room", new_room_path
+            .item= link_to "All Rooms", rooms_path
             - if user_signed_in?
-              %ul
-                - current_user.rooms.each do |room|
-                  %li= link_to room.name, room_path(room)
-                  = link_to "Edit", edit_room_path(room), class: 'btn btn-primary'
-          .col-sm-10
-            = yield
+              - current_user.rooms.each do |room|
+                .item= link_to room.name, room_path(room)
+                .item= link_to "Edit", edit_room_path(room)
+        .ten.wide.column
+          = yield
     - else
       .container
         = yield
