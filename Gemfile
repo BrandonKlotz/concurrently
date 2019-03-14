@@ -52,6 +52,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'administrate', github: 'excid3/administrate', branch: 'zeitwerk'
 # Want to deprecate bootstrap
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+gem 'semantic-ui-sass'
 gem 'haml'
 gem 'devise', '~> 4.6', '>= 4.6.1'
 gem 'devise-bootstrapped', github: 'excid3/devise-bootstrapped', branch: 'bootstrap4'
