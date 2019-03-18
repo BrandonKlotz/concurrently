@@ -4,7 +4,6 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "bootstrap";
 @import "sticky-footer";
 @import "announcements";
 @import "semantic-ui";
@@ -12,14 +11,6 @@
 .ui.vertical.attached.menu {
   margin-top: -1px !important;
   height: 90vh;
-}
-
-// Fixes bootstrap nav-brand container overlap
-@include media-breakpoint-down(xs) {
-  .container {
-    margin-left: 0;
-    margin-right: 0;
-  }
 }
 
 // Masquerade alert shouldn't have a bottom margin
