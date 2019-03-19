@@ -3,6 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :rooms do 
     resource :room_users
+    resources :messages
   end
 
   namespace :admin do
