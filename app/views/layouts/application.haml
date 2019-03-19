@@ -7,18 +7,21 @@
     = render 'shared/navbar'
     - if user_signed_in?
       .ui.grid
-        .four.wide.column.no-padding-grid
+        .four.wide.column
           .ui.fluid.vertical.attached.menu
-            .item= link_to "New Room", new_room_path
-            .item= link_to "All Rooms", rooms_path
-            .ui.divider
+            .item
+              = link_to new_room_path do
+                Create Room
+                %i.ui.plus.icon
             - current_user.rooms.each do |room|
-              .item= link_to room.name, room_path(room)
-              .item= link_to "Edit", edit_room_path(room)
-        .twelve.wide.column.no-padding-grid
+              .item
+                .ui.button= link_to room.name, room_path(room)
+                .right.floated.ui.secondary.basic.button= link_to "Edit", edit_room_path(room)
+        .eight.wide.column
           = render 'shared/notices'
-          .ui.hidden.divider
-          = yield
+          .ui.basic.segment
+            = yield
+        .four.wide.column
     - else
       .container
         = render 'shared/notices'

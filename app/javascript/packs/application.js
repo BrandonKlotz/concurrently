@@ -10,3 +10,12 @@ require("channels")
 require("local-time").start()
 
 window.Rails = Rails
+
+$(document).on("turbolinks:load", () => {
+  $('#new-message').keypress(function(e) {
+    if (e && e.keyCode == 13) {
+      e.preventDefault
+      $(this).submit();
+    }
+  });
+});

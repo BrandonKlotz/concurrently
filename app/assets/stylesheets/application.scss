@@ -9,8 +9,18 @@
 @import "semantic-ui";
 
 .ui.vertical.attached.menu {
-  margin-top: -1px !important;
+  margin-top: 13px !important;
+  height: 110vh;
+  padding-left: 1em;
+}
+
+.ui.comments {
   height: 90vh;
+  overflow-y: scroll !important;
+}
+
+.column {
+  padding: 0 !important;
 }
 
 // Masquerade alert shouldn't have a bottom margin
