@@ -1,10 +1,10 @@
 module ApplicationHelper
-  def bootstrap_class_for(flash_type)
+  def flash_class_for(flash_type)
     {
-      success: "alert-success",
-      error: "alert-danger",
-      alert: "alert-warning",
-      notice: "alert-info"
+      success: "success",
+      error: "error",
+      alert: "warning",
+      notice: "info"
     }.stringify_keys[flash_type.to_s] || flash_type.to_s
   end
 end

@@ -5,20 +5,22 @@
     = render 'shared/head'
   %body
     = render 'shared/navbar'
-    = render 'shared/notices'
     - if user_signed_in?
       .ui.grid
-        .four.wide.column
-          .ui.vertical.attached.menu
+        .four.wide.column.no-padding-grid
+          .ui.fluid.vertical.attached.menu
             .item= link_to "New Room", new_room_path
             .item= link_to "All Rooms", rooms_path
-            - if user_signed_in?
-              - current_user.rooms.each do |room|
-                .item= link_to room.name, room_path(room)
-                .item= link_to "Edit", edit_room_path(room)
-        .ten.wide.column
+            .ui.divider
+            - current_user.rooms.each do |room|
+              .item= link_to room.name, room_path(room)
+              .item= link_to "Edit", edit_room_path(room)
+        .twelve.wide.column.no-padding-grid
+          = render 'shared/notices'
+          .ui.hidden.divider
           = yield
     - else
       .container
+        = render 'shared/notices'
         = yield
     = render 'shared/footer'

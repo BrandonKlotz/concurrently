@@ -1,17 +1,22 @@
-.row
-  .col-lg-4.col-md-6.ml-auto.mr-auto
-    %h1.text-center Log in
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .form-group
-        = f.text_field :login, autofocus: true, placeholder: 'Login with email or username', class: 'form-control'
-      .form-group
-        = f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control'
-      - if devise_mapping.rememberable?
-        .form-check
-          %label.form-check-label
-            = f.check_box :remember_me, class: "form-check-input"
-            Remember me
-      .form-group
-        = f.submit "Log in", class: "btn btn-primary btn-block btn-lg"
-    .text-center
-      = render "devise/shared/links"
+.ui.middle.aligned.center.aligned.grid
+  .row
+    .ui.stacked.segment  
+      %h1.ui.header Log in
+      .ui.large.form
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            .ui.left.icon.input
+              %i.ui.grey.user.icon
+              = f.text_field :login, autofocus: true, placeholder: 'Login with email or username'
+          .field
+            .ui.left.icon.input
+              %i.ui.grey.lock.icon
+              = f.password_field :password, autocomplete: "off", placeholder: 'Password'
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me, class: "ui checkbox"
+              Remember me
+          .field
+            = f.submit "Log in", class: "ui primary button"
+        .ui.divider
+        = render "devise/shared/links"

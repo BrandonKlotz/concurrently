@@ -1,5 +1,5 @@
 %h1 Notifications
-  %ul
-    - @notifications.each do |notification|
-      %li= render "notifications/#{notification.notifiable_type.underscore}/#{notification.action.underscore}", actor: notification.actor, notifiable: notification.notifiable
+%ul
+  - @notifications.each do |notification|
+    %li= render "notifications/#{notification.notifiable_type.underscore}/#{notification.action.underscore}", actor: notification.actor, notifiable: notification.notifiable
   

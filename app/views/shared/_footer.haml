@@ -1,7 +1,12 @@
-%footer.footer.text-muted.bg-light
-  .container
-    %span
-      © #{Date.today.year} Your Company
-    %ul.list-inline.mb-0.float-right
-      %li.list-inline-item.mr-3= link_to "Terms", terms_path
-      %li.list-inline-item.mr-3= link_to "Privacy", privacy_path
+.ui.inverted.vertical.footer.segment{ style: "height: 200px;"}
+  .ui.container
+    .ui.stackable.padded.inverted.divided.stackable.grid
+      .six.wide.column
+        .ui.inverted.link
+          © #{Date.today.year} Concurrently by Principle Design, LLC
+      .six.wide.column
+        .ui.inverted.header
+          Links
+        .ui.inverted.link.list
+          .item= link_to "Terms", terms_path
+          .item= link_to "Privacy", privacy_path
