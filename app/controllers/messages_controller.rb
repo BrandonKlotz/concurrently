@@ -5,7 +5,8 @@ class MessagesController < ApplicationController
   def create
     message = @room.messages.new(message_params)
     message.user = current_user
-    MessageRelayJob.perform_later(message) if message.save
+    message.save
+    MessageRelayJob.perform_later(message)
   end
 
   private
