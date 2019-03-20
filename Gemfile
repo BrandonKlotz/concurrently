@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -52,6 +52,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'administrate', github: 'excid3/administrate', branch: 'zeitwerk'
 gem 'haml-rails'
 gem 'devise', '~> 4.6', '>= 4.6.1'
+gem 'jquery-rails'
 gem 'semantic-ui-sass'
 gem 'devise_masquerade', '~> 0.6.2'
 gem 'font-awesome-sass', '~> 5.6', '>= 5.6.1'

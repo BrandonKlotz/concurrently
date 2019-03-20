@@ -15,7 +15,7 @@
                 %i.ui.plus.icon
             - current_user.rooms.each do |room|
               .item
-                .ui.button= link_to room.name, room_path(room)
+                .ui.button= link_to room.name, room_path(room), data: { behavior: "room-link", room_id: room.id }
                 .right.floated.ui.secondary.basic.button= link_to "Edit", edit_room_path(room)
         .eight.wide.column
           = render 'shared/notices'

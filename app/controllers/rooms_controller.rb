@@ -11,7 +11,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
-    @messages = @room.messages.order(created_at: :asc).limit(100)
+    @messages = @room.messages.order(created_at: :desc).limit(100).reverse
   end
 
   # GET /rooms/new

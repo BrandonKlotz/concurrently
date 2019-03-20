@@ -3,7 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :rooms do 
     resource :room_users
-    resources :messages
+    resources :messages, only: [:create, :destroy]
   end
 
   namespace :admin do
