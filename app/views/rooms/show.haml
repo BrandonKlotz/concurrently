@@ -1,20 +1,10 @@
 %h1= @room.name
-.ui.comments
+.ui.comments{ data: { behavior: "messages", "room-id": "#{@room.id}" } }
   - @messages.each do |message|
-    .comment
-      .avatar
-        .circular.mini.image= image_tag gravatar_image_url(current_user.email, size: "60px")
-      .content
-        .author
-          = message.user.username
-          .metadata
-            .date
-              = time_ago_in_words(message.created_at)
-        .text
-          = message.body
+    = render message
 
 .ui.large.form
-  = form_for [@room, Message.new] do |f| 
+  = form_for [@room, Message.new], remote: true do |f| 
     .field
-      = f.text_field :body, placeholder: "Message #{@room.name}"
+      = f.text_field :body, placeholder: "Message #{@room.name}", autofocus: true
     
