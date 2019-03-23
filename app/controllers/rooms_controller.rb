@@ -57,6 +57,9 @@ class RoomsController < ApplicationController
   # DELETE /rooms/1
   # DELETE /rooms/1.json
   def destroy
+    # Probably should not allow users to destroy all their messages - will hide button
+    @room.room_users.find_by(user_id: current_user.id).destroy
+    @room.messages.destroy_all
     @room.destroy
     respond_to do |format|
       format.html { redirect_to rooms_url, notice: 'Room was successfully destroyed.' }

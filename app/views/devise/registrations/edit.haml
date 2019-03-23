@@ -1,26 +1,29 @@
-.row
-  .col-lg-4.col-md-6.ml-auto.mr-auto
-    %h1.text-center Account
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-      = devise_error_messages!
-      .form-group
-        = f.text_field :name, autofocus: false, class: 'form-control', placeholder: "Full Name"
-      .form-group
-        = f.email_field :email, class: 'form-control', placeholder: 'Email Address'
-      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-        .alert.alert-warning
-          Currently waiting confirmation for: #{resource.unconfirmed_email}
-      .form-group
-        = f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password'
-        %p.form-text.text-muted
-          %small Leave password blank if you don't want to change it
-      .form-group
-        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password'
-      .form-group
-        = f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: 'Current Password'
-        %p.form-text.text-muted
-          %small We need your current password to confirm your changes
-      .form-group
-        = f.submit "Save Changes", class: 'btn btn-lg btn-block btn-primary'
-    %hr/
-    %p.text-center= link_to "Deactivate my account", registration_path(resource_name), data: { confirm: "Are you sure? You cannot undo this." }, method: :delete
+%h1.ui.header Account
+.ui.form
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = devise_error_messages!
+    .field
+      = f.text_field :username, autofocus: false, class: 'ui input', placeholder: resource.username
+    .field
+      = f.text_field :name, autofocus: false, class: 'ui input', placeholder: "Full Name"
+    .field
+      = f.email_field :email, class: 'ui input', placeholder: 'Email Address'
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      .alert.alert-warning
+        Currently waiting confirmation for: #{resource.unconfirmed_email}
+    .field
+      = f.password_field :password, autocomplete: "off", class: 'ui input', placeholder: 'Password'
+      %p.form-text.text-muted
+        %small Leave password blank if you don't want to change it
+    .field
+      = f.password_field :password_confirmation, autocomplete: "off", class: 'ui input', placeholder: 'Confirm Password'
+    .field
+      = f.password_field :current_password, autocomplete: "off", class: 'ui input', placeholder: 'Current Password'
+      %p.form-text.text-muted
+        %small We need your current password to confirm your changes
+    .field
+      = f.submit "Save Changes", class: 'ui primary button'
+  .ui.divider
+  = link_to registration_path(resource_name), data: { confirm: "Are you sure? You cannot undo this." }, method: :delete do
+    .ui.orange.button
+      Deactivate my account
