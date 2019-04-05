@@ -12,7 +12,6 @@ module Concurrently
     config.to_prepare do
       Administrate::ApplicationController.helper Concurrently::Application.helpers
     end
-    config.active_job.queue_adapter = :sidekiq
     config.application_name = Rails.application.class.parent_name
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2

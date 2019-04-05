@@ -1,9 +1,9 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  resources :rooms do 
+  resources :rooms do
     resource :room_users
-    resources :messages, only: [:create, :destroy]
+    resources :messages
   end
 
   namespace :admin do
@@ -16,10 +16,6 @@ Rails.application.routes.draw do
     end
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
-    authenticate :user, lambda { |u| u.admin? } do
-      mount Sidekiq::Web => '/sidekiq'
-    end
-
 
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
