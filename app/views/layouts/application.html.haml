@@ -6,9 +6,9 @@
   %body
     = render 'shared/navbar'
     - if user_signed_in?
-      .ui.grid
+      .ui.internally.celled.grid
         .four.wide.column
-          .ui.fluid.vertical.attached.menu
+          .ui.secondary.fluid.vertical.menu
             .item
               = link_to new_room_path do
                 Create Room
@@ -16,7 +16,7 @@
             - current_user.rooms.each do |room|
               .item
                 .ui.button= link_to room.name, room_path(room), data: { behavior: "room-link", room_id: room.id }
-                .right.floated.ui.secondary.basic.button= link_to "Edit", edit_room_path(room)
+                .right.floated.ui.button= link_to "Edit", edit_room_path(room)
         .eight.wide.column
           = render 'shared/notices'
           .ui.basic.segment

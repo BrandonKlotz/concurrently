@@ -1,10 +1,11 @@
-%h1= @room.name
+%h1.room-name= @room.name
+
 .ui.comments{ data: { behavior: "messages", "room-id": "#{@room.id}" } }
+  .comments-shadow
   - @messages.each do |message|
     = render message
 
 .ui.large.form
-  = form_for [@room, Message.new], remote: true do |f| 
+  = form_for [@room, Message.new] do |f|
     .field
       = f.text_field :body, placeholder: "Message #{@room.name}", autofocus: true
-    

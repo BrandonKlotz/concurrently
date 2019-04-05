@@ -8,19 +8,18 @@
 @import "announcements";
 @import "semantic-ui";
 
-.ui.vertical.attached.menu {
-  margin-top: 13px !important;
-  height: 110vh;
-  padding-left: 1em;
-}
-
 .ui.comments {
-  height: 90vh;
+  height: 550px;
   overflow-y: scroll !important;
-}
 
-.column {
-  padding: 0 !important;
+  .comments-shadow {
+    position: absolute;
+    height: 50px;
+    width: 95%;
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    z-index: 100;
+    border-top: 1px solid #D4D4D5;
+  }
 }
 
 // Masquerade alert shouldn't have a bottom margin
