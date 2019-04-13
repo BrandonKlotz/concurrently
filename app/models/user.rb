@@ -1,13 +1,13 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :masqueradable, 
-         :database_authenticatable, 
-         :registerable, 
-         :recoverable, 
-         :rememberable, 
-         :validatable, 
-         :omniauthable, 
+  devise :masqueradable,
+         :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :omniauthable,
          authentication_keys: [:login]
 
   has_person_name
@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_many :messages
 
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
-  validates_format_of :username, with: /^[a-zA-Z0-9]*$/, :multiline => true
+  validates_format_of :username, with: /^[a-zA-Z0-9_.]*$/, :multiline => true
   before_save :validate_username
 
   attr_writer :login
