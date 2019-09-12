@@ -51,7 +51,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'administrate', github: 'excid3/administrate', branch: 'zeitwerk'
 gem 'haml-rails'
-gem 'devise', '~> 4.6', '>= 4.6.1'
+gem 'devise', '~> 4.7'
 gem 'jquery-rails'
 gem 'semantic-ui-sass'
 gem 'devise_masquerade', '~> 0.6.2'
